@@ -2,85 +2,89 @@
 
 Path: `beat-1-sandbox/unit-1/selection.md`
 
-Record of the issue carried into Unit 2, and of the evaluation runs that produced
-`eval-run.txt`. This file is graded at the path above; a copy kept anywhere else in
-the repository is not read.
-
-Complete every labelled field below. Each is graded on its own; content placed under the
-wrong label is not graded.
-
 ---
 
 ## Selected issue
 
-**Issue link**
+### Issue link
 
-[The individual Path Review issue page. A link to the repository or the issue list
-does not satisfy this field.]
+https://github.com/codepath/pathreview-ai301-fa26-s3/issues/73
 
-**Verdict output**
+---
 
-[Your skill's live-mode output for this issue, pasted verbatim and ending with the
-fenced JSON verdict block. A summary does not satisfy this field.]
+### Verdict output
 
-**The verdict must record `accept` for this issue.** Choose an issue your own skill
-accepts. If your skill rejects every candidate you try, that is a signal about your
-rubric rather than about the issues: revise it and re-run — retries are unlimited and a
-partial re-run costs about $0.20 — or run the skill on different candidates. Output
-recording `reject` for the issue you chose earns no credit for this field.
-
-```
-paste the output here, including the closing JSON block
+```text
+All four rubric checks are required (no preferred checks in the rubric), and all four pass.
+Issue #73 - "README and env. example disagree about which LLM API key to set" (open, bug / good first issue / docs / tier-1)
+- Active project - pass. Not archived; last push to main 2026-09-16
+(6 days ago), five recent commits by Aburke225, well inside 12 months.
+- Newcomer-sized scope - pass. One coherent outcome - make README-mo and . env. example agree on OPENROUTER_API_KEY/LLM_PROVIDER. Two named files, docs-only, 1-2h estimate, and a good first issue label applied by a COLLABORATOR. No competing deliverables, no design debate, no failed attempts.
+- Unclaimed work - pass. assignees: I], 0 comments, timeline holds only four labeled events, and the repo has zero PRs of any state, so nothing is linked. (The Path Review house rule about classmate claim comments never came into play - there are no comments.)
+- Contribution policy - pass. docs/CONTRIBUTING md exists; no AI_POLICY-md/AGENTS.md, and nothing in the guide or PR template mentions AI-assisted work, let alone prohibits it. Silence passes.
+Its real conditions are terms to follow: conventional commits, branch docs/73-..., green CI on all five jobs.
+Fit note (ranking only, one candidate): a Python repo with a documentation fix in two explicitly named files matches your preference for a clear, well-scoped beginner issue - and since it i docs-only there is no @pytest-mark.xfail marker to hunt down.
+"item":
+https://github.com/codepath/pathreview-ai301-fa26-s3/issues/73",
+"checks": [
+{"name": "Active project", "grade": "pass"
+"evidence": "archived=false; last push to main 2026-09-16 (6
+days before today), 5 recent commits by Aburke225"},
+{"name": "Newcomer-sized scope"
+', "grade": "pass"
+"evidence": "One outcome - 'Make the two files agree' - across
+READMEmd and . env. example; 'good first issue'/'tier-1' labels applied by a COLLABORATOR"},
+{"name": "Unclaimed work", "grade": "pass"
+"evidence": "assignees: []; 0 comments; timeline contains only
+4 'labeled' events; repo has 0 pull requests in any state"}, {"name": "Contribution policy", "grade": "pass"
+"evidence": "docs/CONTRIBUTING.md has no AI/tooling
+restriction; no AI_POLICY.md or AGENTS.md; PR template requires only green CI and tests"}
+"verdict": "accept Jump
 ```
 
 ---
 
 ## Eval iterations
 
-Quote source text directly in each field below. Paraphrase does not satisfy them.
+### Run history
 
-**Run history**
+Run 1: agreement 14/20
 
-[The agreement score of each run you did, in order. A single run is a complete answer if
-only one run occurred. **The last score in your list must match the agreement line in the
-`eval-run.txt` you committed** — that file is the record of your final run.]
+Run 2: agreement 17/20
 
-**Issue analysis**
+Run 3: agreement 20/20 PASS
 
-[One scored issue, identified by id (`issue-01` through `issue-20`; the `calib-`
-issues are not scored). State your rubric's decision, the gold label, and the
-reasoning that produced your rubric's result.]
+---
 
-**Check rationale**
+### Issue analysis
 
-[One check from the `rubric.md` uploaded to `tools/issue-select/`, quoted as it is
-currently written, with the reasoning behind its current form.]
+Issue: issue-20
 
-**Trade-offs**
+My rubric initially accepted issue-20, while the gold label was reject.
+The issue looked active and unclaimed, but after reviewing the issue more carefully I realized it requested adding a completely new toolbar feature rather than fixing a small, beginner-sized issue. I tightened my "Newcomer-sized scope" check so feature requests requiring new functionality would no longer automatically pass. After updating the rubric, issue-20 was correctly rejected.
 
-[What the quoted check gives up. Any one of these is a complete answer: an issue whose
-result it changes, a canary you re-ran with `--only`, a case you accept it will miss, or a
-stated reason nothing changed elsewhere. "Nothing changed, and here is how I know" earns
-the point in full when the reason follows.]
+---
+
+### Check rationale
+
+Quoted check from rubric.md:
+
+> **Newcomer-sized scope** — The issue clearly describes one concrete bug fix, documentation update, or small feature affecting a limited number of files and does not propose broad architectural work, multiple independent deliverables, or major new functionality.
+
+I wrote this check because first-time contributors are much more likely to succeed on issues with a single well-defined objective. Large feature requests or architectural changes usually require much more project knowledge and are less suitable as first contributions.
+
+---
+
+### Trade-offs
+
+This stricter scope check may reject some feature requests that are actually easy to implement. I accepted that trade-off because it better distinguishes beginner-friendly issues from larger design work and improved my overall evaluation accuracy.
 
 ---
 
 ## Selection rationale
 
-Graded on whether all three are answered, in your own words. Not on how good the
-reasoning is, and not on length — a short honest answer to each earns the full marks.
-This is also the basis for the claim comment you write in Unit 2.
+I selected issue #73 because it is a documentation-only issue involving two clearly identified files. It matches my current experience level and can realistically be completed within the available time.
 
-**Selection rationale**
+My rubric correctly identified that the repository is active, the issue is unclaimed, the contribution policy allows this type of contribution, and the scope is appropriate for a beginner. I also considered that the issue has a "good first issue" label and a clear expected outcome.
 
-[Answer all three:
-
-1. The issue's fit to your interests and to the time available.
-2. What the verdict identified correctly, and what you weighed that the rubric could
-   not.
-3. The anticipated difficulty in claiming it.]
-
----
-
-Related paths: `eval-run.txt` in this directory; your skill's files in
-`tools/issue-select/`.
+I expect claiming the issue to be straightforward because there are currently no assignees or discussion indicating someone else is actively working on it.
