@@ -1,61 +1,51 @@
 # Unit 4 — Test and Submit
 
-Path: `beat-1-sandbox/unit-4/pull-request.md`
-
-Record of the pull request you opened against the Path Review repo, and of the evaluation
-runs that produced `eval-run.txt`. This file is graded at the path above; a copy kept
-anywhere else in the repository is not read.
-
-Complete every labelled field below. Each is graded on its own; content placed under the wrong
-label is not graded.
-
----
-
 ## Your pull request
 
 **Pull request**
 
-[Link to the pull request you opened. It must be the pull request's own page on the Path
-Review repo, not your fork's branch page.]
+https://github.com/codepath/pathreview-ai301-fa26-s3/pull/102
 
 **Branch**
 
-[The name of the branch the pull request comes from, exactly as it appears in your fork.
-The naming shape is a type prefix, then the issue number, then a short description. **The
-issue number in the branch name must be the number of the issue the pull request fixes** —
-a name carrying any other number does not satisfy this field.]
+`docs/73-sync-llm-config`
 
 ## Eval iterations
 
-Answer all four sections. Quote source text directly; paraphrase does not satisfy these
-fields.
-
 **Run history**
 
-[The agreement score of each run you did, in order. A single run is a complete answer if
-only one run occurred. **The last score in your list must match the agreement line in the
-`eval-run.txt` you committed** — that file is the record of your final run.]
+My completed scored evaluation run achieved an agreement score of **20/20 scored items (PASS)**, exceeding the required threshold of 18/20. All 20 scored packages matched their gold labels.
+
+The evaluation covered five categories: clear-accept (7/7), not-tested (4/4), silent-drift (4/4), standards-wall (2/2), and unreviewable (3/3).
+
+The final evaluation output recorded:
+
+`agreement: 20/20 scored items  (bar: 18/20: PASS)`
 
 **Package analysis**
 
-[Pick one scored package (`pkg-01` through `pkg-20` — the four `calib-` packages are never
-scored). Name it by id, say what your rubric decided and what the gold label said, and
-explain why your rubric read it that way.]
+I selected `pkg-04`, categorized as `not-tested`.
+
+- **Rubric verdict:** `reject`
+- **Gold label:** `reject`
+- **Agreement:** `yes`
+
+The rubric requires observable testing evidence rather than unsupported claims that a change was tested. The `not-tested` category is intended to identify submissions that lack sufficient verification. The evaluation classified `pkg-04` as `reject`, matching the gold label.
 
 **Check rationale**
 
-[Quote one check from the `rubric.md` you uploaded to `tools/pr-precheck/`, exactly as it reads now.
-Then say why it reads that way — what you revised to get there, or what you rejected in
-favour of it.]
+The following check is quoted directly from my `rubric.md`:
+
+> | Observable test evidence | Compare the plan's test plan with test_evidence.md or the practice package's test records. | The evidence contains actual commands and observable results relevant to the changed behavior, including before-and-after reproduction evidence when applicable. Missing or unsuccessful checks are accurately disclosed rather than represented as passing. | required |
+
+I made this check required because a PR should not be considered ready for review when its testing claims cannot be verified. Requiring actual commands and observed results helps reviewers distinguish demonstrated behavior from assumptions.
+
+I also chose not to require every check to pass unconditionally. Instead, the rubric allows unsuccessful checks to be disclosed accurately, so reviewers can evaluate limitations without being misled.
 
 **Trade-offs**
 
-[Every check gives something up. Any one of these is a complete answer: a package whose
-result it changes, a canary you re-ran with `--only`, a case you accept it will miss, or a
-stated reason nothing changed elsewhere. "Nothing changed, and here is how I know" earns
-the point in full when the reason follows.]
+This check prioritizes transparent evidence over claims of complete test success. A trade-off is that it can accept a PR whose testing is incomplete, provided the missing or unsuccessful checks are accurately disclosed and the other required criteria are satisfied.
 
----
+Conversely, it can reject a change that may work correctly but lacks observable evidence.
 
-Related paths: `eval-run.txt` in this directory; your skill's files in
-`tools/pr-precheck/`.
+For my documentation-only PR addressing Issue #73, I used targeted configuration checks and recorded the repository's test, lint, and type-check results. The goal was to provide evidence proportional to the change without claiming that uncollected integration tests had passed.
