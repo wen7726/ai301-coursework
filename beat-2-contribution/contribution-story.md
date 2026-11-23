@@ -45,6 +45,12 @@ I configured the PR Monitor with a personal playbook covering reviewer responses
 
 After reviewing the draft, I identified a potential scope issue: the suggested response could imply that issue #5331 was ready to close, even though my contribution addressed only one documentation item. I decided that no further action was required on the merged PR, demonstrating the importance of reviewing AI-generated communication before posting it.
 
+I refined my playbook to require a manual scope check before
+suggesting any issue-closing language. I also retained a seven-day
+staleness threshold as a manual review trigger rather than an
+automatic reminder. This prevents the monitor from recommending
+unnecessary follow-ups or overstating what my PR accomplished.
+
 ### Maintainer Response Time Research
 
 I investigated five merged pull requests in the
@@ -85,8 +91,7 @@ During the investigation, I discovered that some of the requested documentation 
 
 I later updated the scope rubric again during Unit 6, replacing "Newcomer-sized scope" with "scope-feasible." The new criterion focuses on whether an issue describes one identifiable piece of work, while a separate difficulty note captures implementation complexity without affecting the verdict.
 
-
-**Claim comment:** No verified claim-comment URL for Issue #5331 is currently available. My earlier comment on Issue #6616 is unrelated to this contribution and is not being used as claim evidence.
+**Claim comment:** https://github.com/Ocelot-Social-Community/Ocelot-Social/issues/5331#issuecomment-6963893572 
 
 **Toolkit**
 
@@ -213,6 +218,19 @@ ocelot.social is a social network.
 
 **Validation performed:**
 
+**Two Observable Checks:**
+
+**Check 1 — Content Correctness:**
+I inspected `neo4j/README.md` before and after the change.
+Before the fix, the opening paragraph used "Human Connection."
+After the fix, it used "ocelot.social," matching the current project name.
+
+**Check 2 — Change Scope and Integrity:**
+I reviewed the Git diff to confirm that only `neo4j/README.md`
+was modified, with one insertion and one deletion.
+I also ran `git diff --check HEAD^ HEAD`, which reported no
+whitespace errors.
+
 1. Ran `git show --stat 70641ce7a` to confirm the scope of the commit.
 2. Ran `git show --format= -- neo4j/README.md` to inspect the exact change.
 3. Ran `git diff --check HEAD^ HEAD` to check for whitespace errors. The command produced no output, indicating no whitespace errors were detected.
@@ -251,14 +269,20 @@ I reviewed Ocelot-Social's `CONTRIBUTING.md` and used Claude Code to inspect onl
 
 I verified that the file contained 42 lines and that `.git/info/exclude` prevented it from appearing in Git status. These tooling improvements were completed after opening PR #10979, so I am documenting them as subsequent workflow improvements rather than claiming they were used before the original submission.
 
-**November 19, 2026 — Unit 7 Ship Gate**
+**November 21, 2026 — Unit 7 Ship Gate**
 
 I configured and ran a repository-specific Ship Gate using `npm ci` and `npm run docs:build`. Both commands passed. The initial PR prechecks identified an inaccurate issue-closing claim, so I revised the draft to use `Related to #5331` and documented the remaining scope. The final Ship Gate passed all eight prechecks. This validation was retrospective because the PR had already merged.
 
-**November 19, 2026 — Unit 8 PR Monitor**
+**November 22, 2026 — Unit 8 PR Monitor**
 
 I created a PR Monitor playbook defining reviewer response rules, staleness thresholds, nudge etiquette, and walk-away criteria. The monitor identified PR #10979 as merged and approved and generated a follow-up draft. I reviewed the draft and decided not to post it because the PR was already merged and the suggested issue-closing language could overstate the scope of my contribution.
 
+I also researched five merged pull requests to compare human
+maintainer response times. I excluded automated CodeRabbit
+responses and retained a seven-day threshold for manual review.
+The small sample showed substantial variation in response times,
+so I treated the threshold as a monitoring guideline rather than
+an official repository policy.
 
 **Toolkit**
 
