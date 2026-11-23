@@ -45,6 +45,34 @@ I configured the PR Monitor with a personal playbook covering reviewer responses
 
 After reviewing the draft, I identified a potential scope issue: the suggested response could imply that issue #5331 was ready to close, even though my contribution addressed only one documentation item. I decided that no further action was required on the merged PR, demonstrating the importance of reviewing AI-generated communication before posting it.
 
+### Maintainer Response Time Research
+
+I investigated five merged pull requests in the
+Ocelot-Social-Community/Ocelot-Social repository.
+
+- PR #10918: 6 hours 41 minutes
+- PR #10853: 25 hours 20 minutes
+- PR #10675: approximately 16 days 7 hours
+- PR #9122: approximately 1 day 17 hours
+- PR #8907: 27 minutes 58 seconds
+
+I excluded automated CodeRabbit responses and measured
+the time until the first identifiable human maintainer
+comment or review.
+
+Four of the five PRs received a human response within
+48 hours. The median response time was approximately
+25.3 hours.
+
+Based on this sample, I retained a 7-day staleness
+threshold as a conservative monitoring trigger.
+The monitor should flag stale PRs for manual review
+rather than automatically contacting maintainers.
+
+Limitation: GitHub classified these authors as
+CONTRIBUTOR, but their external-contributor status
+has not been independently verified.
+
 ---
 
 ## Why I Chose This Issue
